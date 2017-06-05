@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Contact } from './contact.model';
+
 
 @Component({
   selector: 'app-contact-list',
@@ -7,9 +9,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactListComponent implements OnInit {
 
+	contacts:Contact[] = [
+		new Contact("Dolas", "Franek", "Antoni", "123 456 789", "franek@dolas.pl"),
+		new Contact("Brzęczyszczykiewicz", "Grzegorz", "", "134 3456 78", "brzecz@gmail.com")
+	];
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onDodaj(){
+  // metoda obsługująca zdarzenie kliknięcia przycisku dodaj
+  	
+  	// dodawanie testowych danych
+  	this.contacts.push(new Contact("Skowron", "Jurek", "", "728 100 888", "jurek2@fgh.pl"));
+  }
+
+  onEdytuj(){
+  // metoda obsługująca zdarzenie kliknięcia przycisku edytuj
+  	console.log("Kliknięto Edytuj");
+  }
+
+  onUsun(){
+  // metoda obsługująca zdarzenie kliknięcia przycisku usun
+  	console.log("Kliknięto Usuń");
   }
 
 }

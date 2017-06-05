@@ -1,4 +1,20 @@
-<p>
-  contact-list works!
-</p>
-<!-- <button class="btn btn-primary">Button</button> -->
+<!-- Lista kontaktów -->
+<!-- <app-contact-element></app-contact-element> -->
+
+<div class="container">
+	<div class="row">
+			<ul class="list-group col-xs-12">
+				<li class="list-group-item"
+					*ngFor = "let contact of contacts"
+				>
+					{{ contact.nazwisko }} {{ contact.imie }}	
+				</li>
+			</ul>
+	</div>
+</div>
+
+<!-- Przyciski zarządzania listą -->
+<button class="btn btn-success" 	(click)="onDodaj()" 	>Dodaj</button>
+<button class="btn btn-danger" 		(click)="onUsun()" 		>Usuń</button>
+<button class="btn btn-primary"		(click)="onEdytuj()"	>Edytuj</button>
+
