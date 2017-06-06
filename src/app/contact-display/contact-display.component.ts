@@ -28,23 +28,22 @@ export class ContactDisplayComponent implements OnInit {
   ngOnInit() {
   }
 
-  onDodajKontakt(){
+  // użycie lokalnych referencji w onDodajKontakt zamiast dwustronnego bindowania
+  onDodajKontakt(	nazwiskoInput: HTMLInputElement,
+  					imieInput: HTMLInputElement,
+  					drugieImieInput: HTMLInputElement,
+  					nrTelefonuInput: HTMLInputElement,
+  					emailInput: HTMLInputElement )
+  {
  	// metoda obsługująca kliknięcie "Dodaj kontakt"
- 	// emitowanie eventu z przekazaniem danych 
+ 	// emitowanie eventu z przekazaniem danych z formularza
  	this.kontaktDodany.emit({
- 		nazwisko: 	this.nazwisko,
-		imie: 		this.imie,
-		drugieImie: 	this.drugieImie,
-		nrTelefonu: 	this.nrTelefonu,
-		email: 		this.email
+ 		nazwisko: 		nazwiskoInput.value,
+		imie: 			imieInput.value,
+		drugieImie: 	drugieImieInput.value,
+		nrTelefonu: 	nrTelefonuInput.value,
+		email: 			emailInput.value
  	});
 
- 	console.log({
- 		'nazwisko': 	this.nazwisko,
-		'imie': 		this.imie,
-		'drugieImie': 	this.drugieImie,
-		'nrTelefonu': 	this.nrTelefonu,
-		'email': 		this.email
- 	});
   }
 }

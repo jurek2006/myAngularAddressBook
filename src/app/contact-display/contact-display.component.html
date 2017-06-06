@@ -2,17 +2,18 @@
 	<div class="row">
 		<div class="col-xs-12">
 			<h2>Dodawanie kontaktu</h2>
+			<!-- użycie lokalnych referencji -->
 			<label>Nazwisko:</label>
-			<input type="text" name="nazwisko" [(ngModel)]="nazwisko"><br>
+			<input type="text" name="nazwisko" #nazwisko><br>
 			<label>Pierwsze imię:</label>
-			<input type="text" name="imie" [(ngModel)]="imie"><br>
+			<input type="text" name="imie" #imie><br>
 			<label>Drugie imię:</label>
-			<input type="text" name="drugieImie" [(ngModel)]="drugieImie"><br>
+			<input type="text" name="drugieImie" #drugieImie><br>
 			<label>Numer telefonu:</label>
-			<input type="text" name="nrTelefonu" [(ngModel)]="nrTelefonu"><br>
+			<input type="text" name="nrTelefonu" #nrTelefonu><br>
 			<label>E-mail:</label>
-			<input type="text" name="email" [(ngModel)] = "email"><br>
-			<button class="btn btn-success" (click)="onDodajKontakt()">Dodaj kontakt</button>
+			<input type="text" name="email" #email><br>
+			<button class="btn btn-success" (click)="onDodajKontakt(nazwisko, imie, drugieImie, nrTelefonu, email)">Dodaj kontakt</button>
 		</div>
 	</div>
 </div>
