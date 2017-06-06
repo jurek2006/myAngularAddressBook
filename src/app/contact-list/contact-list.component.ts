@@ -36,4 +36,14 @@ export class ContactListComponent implements OnInit {
   	console.log("Kliknięto Usuń");
   }
 
+  // metoda reagująca na wyemitowanie zdarzenia kontakt dodany
+  onKontaktDodany(daneKontaktu: {
+									nazwisko: string,
+									imie: string,
+									drugieImie: string,
+									nrTelefonu: string,
+									email: string})
+  {
+  	this.contacts.push(new Contact(daneKontaktu.nazwisko, daneKontaktu.imie, daneKontaktu.drugieImie, daneKontaktu.nrTelefonu, daneKontaktu.email));
+  }
 }

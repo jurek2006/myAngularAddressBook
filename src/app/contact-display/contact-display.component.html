@@ -1,3 +1,18 @@
-<p>
-  contact-display works!
-</p>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<h2>Dodawanie kontaktu</h2>
+			<label>Nazwisko:</label>
+			<input type="text" name="nazwisko" [(ngModel)]="nazwisko"><br>
+			<label>Pierwsze imię:</label>
+			<input type="text" name="imie" [(ngModel)]="imie"><br>
+			<label>Drugie imię:</label>
+			<input type="text" name="drugieImie" [(ngModel)]="drugieImie"><br>
+			<label>Numer telefonu:</label>
+			<input type="text" name="nrTelefonu" [(ngModel)]="nrTelefonu"><br>
+			<label>E-mail:</label>
+			<input type="text" name="email" [(ngModel)] = "email"><br>
+			<button class="btn btn-success" (click)="onDodajKontakt()">Dodaj kontakt</button>
+		</div>
+	</div>
+</div>
