@@ -5,12 +5,10 @@
 		<div class="col-xs-12">
 			<h1>Kontakty:</h1>
 			<ul class="list-group">
-				<a class="list-group-item"
-					style="cursor: pointer"
+				<app-contact-element 
 					*ngFor = "let contact of contacts"
-				>
-					{{ contact.nazwisko }} {{ contact.imie }}	
-				</a>
+					[contactItem] = "contact">
+				</app-contact-element>
 			</ul>
 			<div>
 				<!-- Przyciski zarządzania listą -->
