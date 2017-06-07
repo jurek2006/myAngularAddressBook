@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
+
+import { Contact } from "../contact-list/contact.model";
+
 
 @Component({
   selector: 'app-contact-edit',
@@ -7,43 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactEditComponent implements OnInit {
 
-	// obiekt zdarzenia przekazujący dane z formularza
-	// @Output() kontaktDodany = new EventEmitter<{
-	// 								nazwisko: string,
-	// 								imie: string,
-	// 								drugieImie: string,
-	// 								nrTelefonu: string,
-	// 								email: string
-	// }>();
-
-	// // pola powiązane z polami formularza
-	// nazwisko: string = '';
-	// imie: string = '';
-	// drugieImie: string = '';
-	// nrTelefonu: string = '';
-	// email: string = '';
+	// wybrany na liście element
+	@Input('selectedItem') contact: Contact; 
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  // użycie lokalnych referencji w onDodajKontakt zamiast dwustronnego bindowania
-  // onDodajKontakt(	nazwiskoInput: HTMLInputElement,
-  // 					imieInput: HTMLInputElement,
-  // 					drugieImieInput: HTMLInputElement,
-  // 					nrTelefonuInput: HTMLInputElement,
-  // 					emailInput: HTMLInputElement )
-  // {
- 	// // metoda obsługująca kliknięcie "Dodaj kontakt"
- 	// // emitowanie eventu z przekazaniem danych z formularza
- 	// this.kontaktDodany.emit({
- 	// 	nazwisko: 		nazwiskoInput.value,
-		// imie: 			imieInput.value,
-		// drugieImie: 	drugieImieInput.value,
-		// nrTelefonu: 	nrTelefonuInput.value,
-		// email: 			emailInput.value
- 	// });
-
-  // }
+  // metoda zapisu nowych wartości z formularza do edytowanego kontaktu
+  onZapiszKontakt(	nazwiskoInput: HTMLInputElement,
+  					imieInput: HTMLInputElement,
+  					drugieImieInput: HTMLInputElement,
+  					nrTelefonuInput: HTMLInputElement,
+  					emailInput: HTMLInputElement){
+  	this.contact.nazwisko 	= nazwiskoInput.value; 
+  	this.contact.imie 		= imieInput.value;
+  	this.contact.drugieImie = drugieImieInput.value;
+  	this.contact.nrTelefonu = nrTelefonuInput.value
+  	this.contact.email 		= emailInput.value;
+  	console.log(this.contact);
+  }
 }

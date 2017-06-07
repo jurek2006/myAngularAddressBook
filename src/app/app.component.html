@@ -1,18 +1,25 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-12 col-md-5">
-			<app-contact-list (itemClicked) = "contactItemClicked($event)">	
+			<app-contact-list 
+				(itemClicked) = "contactItemClicked($event)"
+				(edytujClicked) = "onEdytujClicked()"
+				[selectedItem] = "selectedContact">	
 			</app-contact-list>
 		</div>
 		<div class="col-xs-12 col-md-7">
-			<!-- w app-contact-display powiązanie przypisanie reakcji onKontaktDodany na wyemitowanie zdarzenia kontaktDodany -->
+			<!-- w app-contact-display wyświetlany jeśli wybrano jakiś kontakt z listy (selectedContact nie jest undefined i aplikacja nie jest w EditMode) -->
 			<app-contact-display 
-				*ngIf = "selectedContact; else infoText"
-				[contact] = "selectedContact">
+				*ngIf = "selectedContact && !inEditMode"
+				[contact] = "selectedContact"
+				(edytujClicked) = "onEdytujClicked()">
 			</app-contact-display>
-			<ng-template #infoText>
-		    	<p>Proszę wybrać kontakt z listy</p>
-		    </ng-template>
+			
+			<!-- jeśli wybrano kontakt i aplikacja jest w EditMode wyświetlany jest formularz edycji danych -->
+			<app-contact-edit
+				*ngIf = "selectedContact && inEditMode"
+				[selectedItem] = "selectedContact">
+			</app-contact-edit>
 		</div>
 	</div>
 </div>

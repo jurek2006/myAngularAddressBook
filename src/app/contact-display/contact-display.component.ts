@@ -11,10 +11,17 @@ import { Contact } from '../contact-list/contact.model';
 export class ContactDisplayComponent implements OnInit {
 
 	@Input() contact: Contact; 
+	// emiter emitowany gdy użytkownik kliknie przycisk "Edytuj"
+	@Output() edytujClicked = new EventEmitter<void>();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onEdytuj(){
+  // metoda obsługująca zdarzenie kliknięcia przycisku edytuj
+  	this.edytujClicked.emit();
   }
 
 }

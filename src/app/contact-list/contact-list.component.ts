@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Contact } from './contact.model';
 
 
@@ -16,6 +16,11 @@ export class ContactListComponent implements OnInit {
 
   // Emiter zdarzenia po kliknięciu na element listy
   @Output() itemClicked = new EventEmitter<Contact>();
+  // emiter emitowany gdy użytkownik kliknie przycisk "Edytuj"
+  @Output() edytujClicked = new EventEmitter<void>();
+
+  // właściwość do przechowywania wybranego elementu z listy kontaktów (pobierane z app.component)
+  @Input() selectedItem: Contact;
 
   constructor() { }
 
@@ -27,11 +32,6 @@ export class ContactListComponent implements OnInit {
   	
   	// dodawanie testowych danych
   	this.contacts.push(new Contact("Skowron", "Jurek", "", "728 100 888", "jurek2@fgh.pl"));
-  }
-
-  onEdytuj(){
-  // metoda obsługująca zdarzenie kliknięcia przycisku edytuj
-  	console.log("Kliknięto Edytuj");
   }
 
   onUsun(){
@@ -53,5 +53,10 @@ export class ContactListComponent implements OnInit {
   listItemClicked(contact: Contact){
     // funkcja obsługi zdarzenia itemClicked emitowanego przez contact-element po kliknięciu na któryś z elementów listy kontaktów
     this.itemClicked.emit(contact);
+  }
+
+  onEdytuj(){
+  // metoda obsługująca zdarzenie kliknięcia przycisku edytuj
+    this.edytujClicked.emit();
   }
 }

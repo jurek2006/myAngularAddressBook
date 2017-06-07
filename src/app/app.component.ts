@@ -11,11 +11,18 @@ import { Contact } from './contact-list/contact.model';
 export class AppComponent {
   title = 'app works!';
   selectedContact: Contact; //właściwość przechowująca aktualnie wybrany na liście kontakt 
+  inEditMode: boolean = false; //właściwość określająca, czy aplikacja jest w trybie edycji kontaktu
 
   contactItemClicked(contactElement: Contact){
   	// metoda obsługi zdarzenia itemClicked emitowanego przez contact-list 
   	// (wywoływanego gdy następuje kliknięcie na którymś elemencie listy kontaktów - przekazywany jest ten kontakt )
-  	// console.log(contactElement);
   	this.selectedContact = contactElement;
+  }
+
+  onEdytujClicked(){
+  // metoda obsługi zdarzenia edytujClicked emitowanego przez contact-display.component
+  // (emitowanego gdy użytkownik kliknie przycisk "Edytuj")
+  // przełącza aplikację w tryb EditMode
+  	this.inEditMode = true;
   }
 }

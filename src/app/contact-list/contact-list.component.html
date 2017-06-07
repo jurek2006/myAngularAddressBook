@@ -13,9 +13,24 @@
 			</ul>
 			<div>
 				<!-- Przyciski zarządzania listą -->
-				<button class="btn btn-success" 	(click)="onDodaj()" 	>Dodaj</button>
-				<button class="btn btn-danger" 		(click)="onUsun()" 		>Usuń</button>
-				<button class="btn btn-primary"		(click)="onEdytuj()"	>Edytuj</button>
+				<!-- Usuń i Edytuj nieaktywne gdy nie wybrano żadnego elementu -->
+				<button 
+					class="btn btn-success" 	
+					(click)="onDodaj()">
+						Dodaj
+				</button>
+				<button 
+					class="btn btn-danger" 	
+					[disabled] = "!selectedItem"
+					(click)="onUsun()">
+						Usuń
+				</button>
+				<button 
+					class="btn btn-primary" 
+					[disabled] = "!selectedItem"
+					(click)="onEdytuj()">
+						Edytuj
+				</button>
 			</div>
 		</div>
 		

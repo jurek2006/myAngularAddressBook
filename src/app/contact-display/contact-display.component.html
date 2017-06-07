@@ -8,7 +8,11 @@
 			<p *ngIf = "contact.drugieImie"><span>Drugie imię:</span> {{ contact.drugieImie }} </p>
 			<p *ngIf = "contact.nrTelefonu"><span>Numer telefonu:</span> {{ contact.nrTelefonu }}</p> 
 			<p *ngIf = "contact.email"><span>E-mail:</span> {{ contact.email }}</p> 
-			<!-- <button class="btn btn-success" (click)="onDodajKontakt(nazwisko, imie, drugieImie, nrTelefonu, email)">Dodaj kontakt</button> -->
+		</div>
+		<div class="col-xs-12">
+			<button class="btn btn-primary"	(click)="onEdytuj()">
+				Edytuj
+			</button>
 		</div>
 	</div>
 </div>

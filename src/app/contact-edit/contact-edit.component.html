@@ -1,19 +1,24 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-12">
-			<h1>Dodawanie kontaktu</h1>
-			<!-- użycie lokalnych referencji -->
+			<h1>Edycja kontaktu</h1>
+
 			<label>Nazwisko:</label>
-			<input type="text" name="nazwisko" #nazwisko><br>
+			<input type="text" name="nazwisko" value="{{ contact.nazwisko }}" #nazwisko><br>
+
 			<label>Pierwsze imię:</label>
-			<input type="text" name="imie" #imie><br>
+			<input type="text" name="imie" value="{{ contact.imie }}" #imie><br>
+
 			<label>Drugie imię:</label>
-			<input type="text" name="drugieImie" #drugieImie><br>
+			<input type="text" name="drugieImie" value="{{ contact.drugieImie }}" #drugieImie><br>
+
 			<label>Numer telefonu:</label>
-			<input type="text" name="nrTelefonu" #nrTelefonu><br>
+			<input type="text" name="nrTelefonu" value="{{ contact.nrTelefonu }}" #nrTelefonu><br>
+
 			<label>E-mail:</label>
-			<input type="text" name="email" #email><br>
-			<button class="btn btn-success" (click)="onDodajKontakt(nazwisko, imie, drugieImie, nrTelefonu, email)">Dodaj kontakt</button>
+			<input type="text" name="email" value="{{ contact.email }}" #email><br>
+
+			<button class="btn btn-success" (click)="onZapiszKontakt(nazwisko, imie, drugieImie, nrTelefonu, email)">Zapisz kontakt</button>
 		</div>
 	</div>
 </div>
