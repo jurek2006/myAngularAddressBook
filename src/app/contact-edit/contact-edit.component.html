@@ -1,3 +1,19 @@
-<p>
-  contact-edit works!
-</p>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<h1>Dodawanie kontaktu</h1>
+			<!-- użycie lokalnych referencji -->
+			<label>Nazwisko:</label>
+			<input type="text" name="nazwisko" #nazwisko><br>
+			<label>Pierwsze imię:</label>
+			<input type="text" name="imie" #imie><br>
+			<label>Drugie imię:</label>
+			<input type="text" name="drugieImie" #drugieImie><br>
+			<label>Numer telefonu:</label>
+			<input type="text" name="nrTelefonu" #nrTelefonu><br>
+			<label>E-mail:</label>
+			<input type="text" name="email" #email><br>
+			<button class="btn btn-success" (click)="onDodajKontakt(nazwisko, imie, drugieImie, nrTelefonu, email)">Dodaj kontakt</button>
+		</div>
+	</div>
+</div>

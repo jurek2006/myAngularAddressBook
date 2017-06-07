@@ -1,32 +1,28 @@
 <!-- Lista kontaktów -->
 <!-- <app-contact-element></app-contact-element> -->
 
-<div class="container">
 	<div class="row">
 		<div class="col-xs-12">
+			<h1>Kontakty:</h1>
 			<ul class="list-group">
-				<li class="list-group-item"
+				<a class="list-group-item"
+					style="cursor: pointer"
 					*ngFor = "let contact of contacts"
 				>
 					{{ contact.nazwisko }} {{ contact.imie }}	
-				</li>
+				</a>
 			</ul>
+			<div>
+				<!-- Przyciski zarządzania listą -->
+				<button class="btn btn-success" 	(click)="onDodaj()" 	>Dodaj</button>
+				<button class="btn btn-danger" 		(click)="onUsun()" 		>Usuń</button>
+				<button class="btn btn-primary"		(click)="onEdytuj()"	>Edytuj</button>
+			</div>
 		</div>
-		<div class="col-xs-12">
-			<!-- Przyciski zarządzania listą -->
-			<button class="btn btn-success" 	(click)="onDodaj()" 	>Dodaj</button>
-			<button class="btn btn-danger" 		(click)="onUsun()" 		>Usuń</button>
-			<button class="btn btn-primary"		(click)="onEdytuj()"	>Edytuj</button>
-		</div>
-		<div class="col-xs-12">
-			<!-- w app-contact-display powiązanie przypisanie reakcji onKontaktDodany na wyemitowanie zdarzenia kontaktDodany -->
-			<app-contact-display (kontaktDodany)="onKontaktDodany($event)">
-			</app-contact-display>
-		</div>
+		
+		
 	</div>
 
-	
-</div>
 
 
 
