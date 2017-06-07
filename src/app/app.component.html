@@ -1,12 +1,18 @@
 <div class="container">
 	<div class="row">
-		<div class="col-xs-6">
-			<app-contact-list></app-contact-list>
+		<div class="col-xs-12 col-md-5">
+			<app-contact-list (itemClicked) = "contactItemClicked($event)">	
+			</app-contact-list>
 		</div>
-		<div class="col-xs-6">
+		<div class="col-xs-12 col-md-7">
 			<!-- w app-contact-display powiązanie przypisanie reakcji onKontaktDodany na wyemitowanie zdarzenia kontaktDodany -->
-			<app-contact-display (kontaktDodany)="onKontaktDodany($event)">
+			<app-contact-display 
+				*ngIf = "selectedContact; else infoText"
+				[contact] = "selectedContact">
 			</app-contact-display>
+			<ng-template #infoText>
+		    	<p>Proszę wybrać kontakt z listy</p>
+		    </ng-template>
 		</div>
 	</div>
 </div>

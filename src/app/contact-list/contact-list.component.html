@@ -7,7 +7,8 @@
 			<ul class="list-group">
 				<app-contact-element 
 					*ngFor = "let contact of contacts"
-					[contactItem] = "contact">
+					[contactItem] = "contact"
+					(itemClicked) = listItemClicked(contact)>
 				</app-contact-element>
 			</ul>
 			<div>

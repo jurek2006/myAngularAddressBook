@@ -3,17 +3,12 @@
 		<div class="col-xs-12">
 			<h1>Szczegóły kontaktu:</h1>
 			<!-- użycie lokalnych referencji -->
-			<label>Nazwisko:</label>
-			<input type="text" name="nazwisko" #nazwisko><br>
-			<label>Pierwsze imię:</label>
-			<input type="text" name="imie" #imie><br>
-			<label>Drugie imię:</label>
-			<input type="text" name="drugieImie" #drugieImie><br>
-			<label>Numer telefonu:</label>
-			<input type="text" name="nrTelefonu" #nrTelefonu><br>
-			<label>E-mail:</label>
-			<input type="text" name="email" #email><br>
-			<button class="btn btn-success" (click)="onDodajKontakt(nazwisko, imie, drugieImie, nrTelefonu, email)">Dodaj kontakt</button>
+			<p><span>Nazwisko:</span> {{ contact.nazwisko }}</p>
+			<p><span>Pierwsze imię:</span> {{ contact.imie }}</p>
+			<p *ngIf = "contact.drugieImie"><span>Drugie imię:</span> {{ contact.drugieImie }} </p>
+			<p *ngIf = "contact.nrTelefonu"><span>Numer telefonu:</span> {{ contact.nrTelefonu }}</p> 
+			<p *ngIf = "contact.email"><span>E-mail:</span> {{ contact.email }}</p> 
+			<!-- <button class="btn btn-success" (click)="onDodajKontakt(nazwisko, imie, drugieImie, nrTelefonu, email)">Dodaj kontakt</button> -->
 		</div>
 	</div>
 </div>

@@ -1,3 +1,6 @@
-<a class="list-group-item" style="cursor: pointer">
-	{{ contactItem.nazwisko }} {{ contactItem.imie }}	
+<a 
+	class="list-group-item" 
+	style="cursor: pointer"
+	(click)="contactItemClicked()">
+		{{ contactItem.nazwisko }} {{ contactItem.imie }}	
 </a>

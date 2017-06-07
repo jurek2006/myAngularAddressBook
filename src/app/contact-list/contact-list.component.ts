@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Contact } from './contact.model';
 
 
@@ -13,6 +13,9 @@ export class ContactListComponent implements OnInit {
 		new Contact("Dolas", "Franek", "Antoni", "123 456 789", "franek@dolas.pl"),
 		new Contact("Brzęczyszczykiewicz", "Grzegorz", "", "134 3456 78", "brzecz@gmail.com")
 	];
+
+  // Emiter zdarzenia po kliknięciu na element listy
+  @Output() itemClicked = new EventEmitter<Contact>();
 
   constructor() { }
 
@@ -45,5 +48,10 @@ export class ContactListComponent implements OnInit {
 									email: string})
   {
   	this.contacts.push(new Contact(daneKontaktu.nazwisko, daneKontaktu.imie, daneKontaktu.drugieImie, daneKontaktu.nrTelefonu, daneKontaktu.email));
+  }
+
+  listItemClicked(contact: Contact){
+    // funkcja obsługi zdarzenia itemClicked emitowanego przez contact-element po kliknięciu na któryś z elementów listy kontaktów
+    this.itemClicked.emit(contact);
   }
 }
